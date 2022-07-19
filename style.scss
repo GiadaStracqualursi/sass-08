@@ -1,0 +1,132 @@
+
+@function rem($px){
+    @return ($px / 45px) * 1rem
+}
+
+
+@mixin color-article ($color, $text-align, $border, $font-size){
+    color: $color;
+    text-align: $text-align;
+    border:  $border;
+    font-size: $font-size;
+}
+
+
+body{
+   display: flex;
+   flex-direction: row;
+   width: 100vw;
+    align-items: center;
+    justify-items: center;
+   
+
+.container { 
+    
+    
+   border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    width: 98vw;
+    align-items: center;
+    justify-items: center;
+    color: green;
+    
+
+    h1{ 
+        text-decoration: underline;
+        text-decoration-color: blue;
+    }
+
+    h2{
+      border: 1px solid red;
+     padding: 20px;
+    }
+   
+
+    
+    section {
+        display: flex;
+        flex-direction: row;
+        width: 95vw;
+      text-align: center;
+        margin: 10px;
+     
+        
+
+        .red{
+         @include color-article(red, center, 1px solid green, 1rem)
+            }
+        
+
+        .blue {
+            @include color-article(blue, center, 1px solid green, 1rem)
+            }
+            }
+
+
+.quadrato{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    justify-items: center;
+
+
+
+
+$sizes: 1rem, 2rem, 3rem;
+@each $pippo in $sizes {
+  .fs-#{$pippo} {
+    font-size: $pippo;
+    width: 45px;
+    height: 45px;
+    border: 1px solid red;
+  }
+}
+
+    
+}
+
+$number: 0;
+$color: white;
+$color1: #000000;
+$amount: +5;
+
+
+@for $i from 1 through 19{
+  $number: $number +5;
+  @if $i !=10 {
+    .quadrato div:nth-child(#{$i}){
+
+    
+      background-color: darken($color, (5% * $i));
+      color: lighten($color1, $amount: $number);
+    }
+
+    }
+  @else {
+    .quadrato div:nth-child(#{$i}){
+      background-color: blue;
+      color:red;
+    }
+   
+  }
+
+
+
+
+
+
+.section1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    @include color-article(green, center, 1px solid blue, 24px);
+    }
+    
+
+
+  }
+}
+}
